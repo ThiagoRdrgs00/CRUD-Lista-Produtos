@@ -39,15 +39,17 @@ public class Main {
     }
 
     public static void MenuDescritivo() {
-        System.out.println("================Menu==============");
-        System.out.println("1 - Cadastrar produtos");
-        System.out.println("2 - Listar produtos");
-        System.out.println("3 - Editar produtos");
-        System.out.println("4 - Remover produtos");
-        System.out.println("5 - Buscar produto por id");
-        System.out.println("0 - Finalizar o sistema");
-        System.out.println("==================================");
-        System.out.print("Qual opção deseja acessar: ");
+        System.out.println("""
+                =============== Menu =============
+                   1 - Cadastrar produtos
+                   2 - Listar produtos
+                   3 - Editar produtos
+                   4 - Remover produtos
+                   5 - Buscar produto por id
+                   0 - Finalizar o sistema
+                ==================================
+                Qual opção deseja acessar:
+                """);
         opcaoMenu = input.nextInt();
     }
 }

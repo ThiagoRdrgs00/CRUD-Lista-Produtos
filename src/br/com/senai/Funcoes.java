@@ -14,7 +14,6 @@ public class Funcoes {
         //valida para verificar se já não existe
         //buscarproduto();
 
-
         System.out.print("Informe o código do produto: ");
         produto.codigo = input.nextInt();
         System.out.print("Informe o nome do produto:");
@@ -23,20 +22,31 @@ public class Funcoes {
         System.out.print("Informe a quantidade: ");
         produto.quantidade = input.nextInt();
         System.out.print("Informe o valor unitário: ");
-        produto.precoUnitario = input.nextDouble();
+        produto.valorUnitario = input.nextDouble();
 
         produtos.add(produto);
     }
 
     public static void listarProdutos(int codigo) {
+        int quantidadeTotal = 0;
+        double valorTotal = 0;
+
         for (Produto produto : produtos) {
             if (produto.codigo == codigo || codigo == 0) {
                 System.out.println("-------------------------");
                 System.out.println("Código: " + produto.codigo);
                 System.out.println("Nome: " + produto.nome);
-                System.out.println("-------------------------");
+                System.out.println("Quantidade: " + produto.quantidade);
+                System.out.println("Valor Unitário: " + produto.valorUnitario);
+                System.out.println("Valor Total: " + (produto.quantidade * produto.valorUnitario));
+
+                quantidadeTotal += produto.quantidade;
+                valorTotal += produto.quantidade * produto.valorUnitario;
             }
         }
+        System.out.println("-------------------------");
+        System.out.println("Quantidade Total de Produtos: " + quantidadeTotal);
+        System.out.println("Valor Total dos Produtos: " + valorTotal);
     }
     public static void excluirProduto(int codigo){
         for (Produto produto : produtos) {
@@ -46,7 +56,7 @@ public class Funcoes {
         }
     }
     public static int buscarProduto() {
-        int codigo = 0;
+        int codigo;
         System.out.print("Informe o código do produto: ");
         codigo = input.nextInt();
         return codigo;
