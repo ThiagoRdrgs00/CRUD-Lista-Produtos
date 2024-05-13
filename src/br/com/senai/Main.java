@@ -19,6 +19,7 @@ public class Main {
                     break;
                 case 3:
                     codigo = Funcoes.buscarProduto();
+                    Funcoes.editarProduto(codigo);
                     break;
                 case 4:
                     codigo = Funcoes.buscarProduto();
@@ -37,9 +38,8 @@ public class Main {
         }
         System.out.println("Sistema finalizado!");
     }
-
     public static void MenuDescritivo() {
-        System.out.println("""
+        System.out.print("""
                 =============== Menu =============
                    1 - Cadastrar produtos
                    2 - Listar produtos
