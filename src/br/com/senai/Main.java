@@ -40,16 +40,16 @@ public class Main {
     }
     public static void MenuDescritivo() {
         System.out.print("""
-                =============== Menu =============
-                   1 - Cadastrar produtos
-                   2 - Listar produtos
-                   3 - Editar produtos
-                   4 - Remover produtos
-                   5 - Buscar produto por id
-                   0 - Finalizar o sistema
-                ==================================
-                Qual opção deseja acessar:
+                ================ Menu ================
+                       1 - Cadastrar produto
+                       2 - Listar produtos
+                       3 - Editar produto
+                       4 - Remover produto
+                       5 - Buscar produto por ID
+                       0 - Finalizar o sistema
+                ======================================
                 """);
+        System.out.print("Qual opção deseja acessar: ");
         opcaoMenu = input.nextInt();
     }
 }

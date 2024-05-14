@@ -8,17 +8,17 @@ public class Funcoes {
 
     public static void cadastrarProduto() {
         Produto produtoNovo = new Produto();
-        int novoProduto = 0;
-        boolean bSeguir = true;
-        int opcaoEditar = 0;
+        int novoProduto;
+        boolean bSeguir;
+        int opcaoEditar;
 
         System.out.print("Informe o código do produto: ");
         novoProduto = input.nextInt();
         bSeguir = verificaCodigoExiste(novoProduto);
 
-        if (bSeguir == false) {
+        if (!bSeguir) {
             produtoNovo.codigo = novoProduto;
-            System.out.print("Informe o nome do produto:");
+            System.out.print("Informe o nome do produto: ");
             input.nextLine();
             produtoNovo.nome = input.nextLine();
             System.out.print("Informe a quantidade: ");
@@ -27,6 +27,7 @@ public class Funcoes {
             produtoNovo.valorUnitario = input.nextDouble();
 
             produtos.add(produtoNovo);
+            System.out.println("--- Produto cadastrado com sucesso ---");
         } else {
             System.out.print("""
             Não é possivel cadastrar este produto pois o mesmo já está cadastrado.
@@ -47,7 +48,7 @@ public class Funcoes {
 
         for (Produto produto : produtos) {
             if (produto.codigo == codigo || codigo == 0) {
-                System.out.println("-------------------------");
+                System.out.println("--------------------------------------");
                 System.out.println("Código: " + produto.codigo);
                 System.out.println("Nome: " + produto.nome);
                 System.out.println("Quantidade: " + produto.quantidade);
@@ -59,12 +60,12 @@ public class Funcoes {
             }
         }
         if (codigo == 0) {
-            System.out.println("-------------------------");
+            System.out.println("--------------------------------------");
             System.out.println("Quantidade Total de Produtos: " + quantidadeTotal);
             System.out.println("Valor Total dos Produtos: " + valorTotal);
         }
     }
-    public static void excluirProduto( int codigo){
+    public static void excluirProduto(int codigo){
         for (Produto produto : produtos) {
             if (produto.codigo == codigo) {
                 produtos.remove(produto);
@@ -77,7 +78,7 @@ public class Funcoes {
         if (bSeguir) {
             for (Produto produto : produtos) {
                 if (produto.codigo == codigo) {
-                    System.out.print("Informe o novo nome do produto:");
+                    System.out.print("Informe o novo nome do produto: ");
                     input.nextLine();
                     produto.nome = input.nextLine();
                     System.out.print("Informe a nova quantidade: ");
