@@ -15,7 +15,7 @@ public class Main {
                     Funcoes.cadastrarProduto();
                     break;
                 case 2:
-                    Funcoes.listarProdutos(0);
+                    Funcoes.listarProdutos();
                     break;
                 case 3:
                     codigo = Funcoes.buscarProduto();
@@ -27,7 +27,7 @@ public class Main {
                     break;
                 case 5:
                     codigo = Funcoes.buscarProduto();
-                    Funcoes.listarProdutos(codigo);
+                    Funcoes.listarProdutoID(codigo);
                     break;
                 case 0:
                     Funcoes.finalizarSistema();
