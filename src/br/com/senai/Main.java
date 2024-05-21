@@ -45,7 +45,7 @@ public class Main {
                        2 - Listar produtos
                        3 - Editar produto
                        4 - Remover produto
-                       5 - Buscar produto por ID
+                       5 - Buscar produto por código
                        0 - Finalizar o sistema
                 ======================================
                 """);
