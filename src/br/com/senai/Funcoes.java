@@ -2,6 +2,7 @@ package br.com.senai;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Funcoes {
     static Scanner input = new Scanner(System.in);
     static ArrayList<Produto> produtos = new ArrayList<>();
@@ -15,6 +16,7 @@ public class Funcoes {
         System.out.print("Informe o código do produto: ");
         novoProduto = input.nextInt();
         bSeguir = verificaCodigoExiste(novoProduto);
+
         if (!bSeguir) {
             produtoNovo.codigo = novoProduto;
             input.nextLine();
@@ -29,7 +31,9 @@ public class Funcoes {
             System.out.println("--- Produto cadastrado com sucesso ---\n");
         } else {
             System.out.print("""
-            Não é possivel cadastrar este produto pois o mesmo já está cadastrado.
+            
+            Não é possivel cadastrar este produto
+            pois o mesmo já está cadastrado
             
             Deseja editar o produto?
             1 - Sim.
@@ -41,6 +45,7 @@ public class Funcoes {
             }
         }
     }
+
     public static void listarProdutos() {
         int quantidadeTotal = 0;
         double valorTotal = 0;
@@ -60,25 +65,12 @@ public class Funcoes {
         if (!produtos.isEmpty()) {
             System.out.println("--------------------------------------");
             System.out.println("Quantidade Total de Produtos: " + quantidadeTotal);
-            System.out.println("Valor Total dos Produtos: " + valorTotal);
+            System.out.println("Valor Total dos Produtos: " + valorTotal + "\n");
         } else {
-            System.out.println("--- Nenhum produto encontrado! ---\n");
+            System.out.println("--- Nenhum produto encontrado ---\n");
         }
     }
-    public static void excluirProduto(int codigo){
-        boolean bSeguir = verificaCodigoExiste(codigo);
-        if (bSeguir) {
-            for (int i=0;i < produtos.size(); i++) {
-                if (produtos.get(i).codigo == codigo) {
-                    System.out.println("--- Produto '" + produtos.get(i).codigo + "' removido com sucesso! ---\n");
-                    produtos.remove(i);
-                    break;
-                }
-            }
-        } else {
-            System.out.println("--- O Produto informado não foi encontrado. ---\n");
-        }
-    }
+
     public static void editarProduto(int codigo) {
         boolean bSeguir = verificaCodigoExiste(codigo);
         if (bSeguir) {
@@ -91,13 +83,29 @@ public class Funcoes {
                     produto.quantidade = input.nextInt();
                     System.out.print("Informe o novo valor unitário: ");
                     produto.valorUnitario = input.nextDouble();
-                    System.out.println("--- Produto '" + produto.codigo + "' editado com sucesso! ---\n");
+                    System.out.println("--- Produto '" + produto.codigo + "' editado com sucesso ---\n");
                 }
             }
         } else {
-            System.out.println("--- O Produto informado não foi encontrado. ---\n");
+            System.out.println("---  O Produto não foi encontrado  ---\n");
         }
     }
+
+    public static void excluirProduto(int codigo){
+        boolean bSeguir = verificaCodigoExiste(codigo);
+        if (bSeguir) {
+            for (int i=0;i < produtos.size(); i++) {
+                if (produtos.get(i).codigo == codigo) {
+                    System.out.println("--- Produto '" + produtos.get(i).codigo + "' removido com sucesso ---\n");
+                    produtos.remove(i);
+                    break;
+                }
+            }
+        } else {
+            System.out.println("---  O Produto não foi encontrado  ---\n");
+        }
+    }
+
     public static void listarProdutoID(int codigo) {
         boolean bSeguir = verificaCodigoExiste(codigo);
         if (bSeguir) {
@@ -108,23 +116,26 @@ public class Funcoes {
                     System.out.println("Nome: " + produto.nome);
                     System.out.println("Quantidade: " + produto.quantidade);
                     System.out.println("Valor Unitário: " + produto.valorUnitario);
-                    System.out.println("Valor Total: " + calculaValorTotalProduto(produto.quantidade, produto.valorUnitario));
+                    System.out.println("Valor Total: " + calculaValorTotalProduto(produto.quantidade, produto.valorUnitario) + "\n");
                     break;
                 }
             }
         } else {
-            System.out.println("--- O Produto informado não foi encontrado. ---\n");
+            System.out.println("---  O Produto não foi encontrado  ---\n");
         }
     }
+
     public static int buscarProduto () {
         int codigo;
         System.out.print("Informe o código do produto: ");
         codigo = input.nextInt();
         return codigo;
     }
+
     public static void finalizarSistema () {
         Main.programaAtivo = false;
     }
+
     private static boolean verificaCodigoExiste(int codigo) {
         boolean codigoExiste = false;
         for (Produto produto : produtos) {
@@ -135,6 +146,7 @@ public class Funcoes {
         }
         return codigoExiste;
     }
+
     private static double calculaValorTotalProduto(int quantidade, double valor) {
         return quantidade * valor;
     }

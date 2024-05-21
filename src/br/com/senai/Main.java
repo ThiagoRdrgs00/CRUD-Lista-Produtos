@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
-    static int opcaoMenu = 0;
-    static int codigo = 0;
+    static int opcaoMenu;
+    static int codigo;
     public static boolean programaAtivo = true;
+
     public static void main(String[] args) {
         while (programaAtivo) {
             MenuDescritivo();
@@ -36,8 +37,9 @@ public class Main {
                     System.out.println("Escolha uma opção válida.");
             }
         }
-        System.out.println("Sistema finalizado!");
+        System.out.println("\nFinalizando Sistema!");
     }
+
     public static void MenuDescritivo() {
         System.out.print("""
                 ================ Menu ================
