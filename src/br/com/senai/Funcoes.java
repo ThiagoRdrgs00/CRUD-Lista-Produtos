@@ -7,6 +7,21 @@ public class Funcoes {
     static Scanner input = new Scanner(System.in);
     static ArrayList<Produto> produtos = new ArrayList<>();
 
+    public static void criarMenu() {
+        System.out.print("""
+                ================ Menu ================
+                       1 - Cadastrar produto
+                       2 - Listar produtos
+                       3 - Editar produto
+                       4 - Remover produto
+                       5 - Buscar produto por código
+                       0 - Finalizar o sistema
+                ======================================
+                """);
+        System.out.print("Qual opção deseja acessar: ");
+        Main.opcaoMenu = input.nextInt();
+    }
+
     public static void cadastrarProduto() {
         Produto produtoNovo = new Produto();
         int novoProduto;
@@ -91,7 +106,8 @@ public class Funcoes {
         }
     }
 
-    public static void excluirProduto(int codigo){
+    public static void excluirProduto(){
+        int codigo = buscarProduto();
         boolean bSeguir = verificaCodigoExiste(codigo);
         if (bSeguir) {
             for (int i=0;i < produtos.size(); i++) {
@@ -106,7 +122,8 @@ public class Funcoes {
         }
     }
 
-    public static void listarProdutoID(int codigo) {
+    public static void listarProdutoID() {
+        int codigo = buscarProduto();
         boolean bSeguir = verificaCodigoExiste(codigo);
         if (bSeguir) {
             for (Produto produto : produtos) {
@@ -130,6 +147,12 @@ public class Funcoes {
         System.out.print("Informe o código do produto: ");
         codigo = input.nextInt();
         return codigo;
+    }
+
+    public static void buscarProdutoEdicao() {
+        //Funçao usada para obter o código quando for editar o produto diretamente via menu
+        int codigo = buscarProduto();
+       editarProduto(codigo);
     }
 
     public static void finalizarSistema () {
